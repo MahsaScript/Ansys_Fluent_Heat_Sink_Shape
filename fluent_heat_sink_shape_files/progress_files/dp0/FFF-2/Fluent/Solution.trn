@@ -1,0 +1,110 @@
+
+Build Time: Dec  2 2019 14:15:02 EST 
+Executable Path: F:/PROGRA~1/ANSYSI~2/v201/fluent/ntbin/win64/fluent.exe
+
+-------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID   Vendor               
+-------------------------------------------------------------------------------
+n0*   DESKTOP-QCIN5NE  1/4  Windows-x64  8536  Intel(R) Core(TM) i5 
+host  DESKTOP-QCIN5NE       Windows-x64  3976  Intel(R) Core(TM) i5 
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+Reading "C:\Users\mofid\Desktop\00-heat-sink\Deliver\fluent_heat_sink_shape\fluent_heat_sink_shape_files\dp0\FFF-2\MECH\FFF-2.msh"...
+Buffering for file scan...
+
+     135 nodes, binary.
+     732 nodes, binary.
+     162 mixed wall faces, zone  1, binary.
+     474 quadrilateral wall faces, zone  2, binary.
+     166 mixed interior faces, zone  3, binary.
+     827 quadrilateral interior faces, zone  4, binary.
+      38 quadrilateral interface faces, zone  9, binary.
+      56 quadrilateral interface faces, zone 10, binary.
+      95 mixed cells, zone  5, binary.
+     364 hexahedral cells, zone  6, binary.
+
+
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	contact_region-trg
+	contact_region-src
+	triangular-freeparts_id5
+	triangular-freeparts_id2
+	interior-triangular-freeparts_id5
+	interior-triangular-freeparts_id2
+	wall-triangular-freeparts_id5
+	wall-triangular-freeparts_id2
+	interior-8
+	wall-11
+	wall-12
+     mesh interfaces,
+     parallel,
+Done.
+
+Preparing mesh for display...
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Done.
+
+Writing Settings file "C:\Users\mofid\Desktop\00-heat-sink\Deliver\fluent_heat_sink_shape\fluent_heat_sink_shape_files\dp0\FFF-2\Fluent\FFF-2.set"...
+	writing rp variables ... Done.
+	writing domain variables ... Done.
+	writing triangular-freeparts_id2 (type fluid) (mixture) ... Done.
+	writing triangular-freeparts_id5 (type fluid) (mixture) ... Done.
+	writing wall-12 (type wall) (mixture) ... Done.
+	writing wall-11 (type wall) (mixture) ... Done.
+	writing interior-8 (type interior) (mixture) ... Done.
+	writing wall-triangular-freeparts_id2 (type wall) (mixture) ... Done.
+	writing wall-triangular-freeparts_id5 (type wall) (mixture) ... Done.
+	writing interior-triangular-freeparts_id2 (type interior) (mixture) ... Done.
+	writing interior-triangular-freeparts_id5 (type interior) (mixture) ... Done.
+	writing contact_region-src (type interface) (mixture) ... Done.
+	writing contact_region-trg (type interface) (mixture) ... Done.
+	writing sliding-interface contact_region ... Done
+	writing zones map name-id ... Done.
+Writing "| gzip -2cf > FFF-2-Setup-Output.cas.gz"...
+Writing temporary file C:\\Users\\mofid\\AppData\\Local\\Temp\\flntgz-39762 ...
+      95 mixed cells, zone  5, binary.
+     364 hexahedral cells, zone  6, binary.
+     140 mixed interior faces, zone  8, binary.
+     162 mixed wall faces, zone  1, binary.
+     474 quadrilateral wall faces, zone  2, binary.
+     166 mixed interior faces, zone  3, binary.
+     827 quadrilateral interior faces, zone  4, binary.
+      38 quadrilateral interface faces, zone  9, binary.
+      56 quadrilateral interface faces, zone 10, binary.
+     140 interior parent pointers, zone  8, binary.
+     140 interface metric data, zone  8, binary.
+     867 nodes, binary.
+     867 node flags, binary.
+Done.
+
+
+Performance Timer for 0 iterations on 1 compute node
+  Average wall-clock time per iteration:              0.000 sec
+  Global reductions per iteration:                        0 ops
+  Global reductions time per iteration:               0.000 sec (0.0%)
+  Message count per iteration:                            0 messages
+  Data transfer per iteration:                        0.000 MB
+  LE solves per iteration:                                0 solves
+  LE wall-clock time per iteration:                   0.000 sec (0.0%)
+  LE global solves per iteration:                         0 solves
+  LE global wall-clock time per iteration:            0.000 sec (0.0%)
+  LE global matrix maximum size:                         0
+  AMG cycles per iteration:                           0.000 cycles
+  Relaxation sweeps per iteration:                        0 sweeps
+  Relaxation exchanges per iteration:                     0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+
+  Total wall-clock time:                              0.000 sec
+

@@ -1,0 +1,60 @@
+# encoding: utf-8
+# 2020 R1
+SetScriptVersion(Version="20.1.164")
+template1 = GetTemplate(TemplateName="Fluid Flow")
+system1 = GetSystem(Name="FFF")
+system2 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+system3 = template1.CreateSystem(
+    Position="Below",
+    RelativeTo=system1)
+system4 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system3)
+system1.DisplayText = "Circular"
+system2.DisplayText = "Squar"
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/Squar.stl")
+meshComponent1 = system2.GetComponent(Name="Mesh")
+meshComponent1.Update(AllDependencies=True)
+system3.DisplayText = "Triangular"
+system4.DisplayText = "Rectangle"
+meshComponent2 = system1.GetComponent(Name="Mesh")
+meshComponent2.Update(AllDependencies=True)
+geometry2 = system1.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/fluent_heat_sink_shape/fluent_heat_sink_shape_files/Circle.step")
+geometry1.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/fluent_heat_sink_shape/fluent_heat_sink_shape_files/Squar.stl")
+geometry3 = system3.GetContainer(ComponentName="Geometry")
+geometry3.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/fluent_heat_sink_shape/fluent_heat_sink_shape_files/Triangular.step")
+geometry4 = system4.GetContainer(ComponentName="Geometry")
+geometry4.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/fluent_heat_sink_shape/fluent_heat_sink_shape_files/Rectangle.step")
+meshComponent2.Update(AllDependencies=True)
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}, RunParallel=True))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Multiphase (Off)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Multiphase (Off)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Multiphase (Off)"))(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Heat Exchanger (Off)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Heat Exchanger (Off)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Heat Exchanger (Off)"))(cx-gui-do cx-set-toggle-button2 "Heat Exchanger Model*Table1(Options)*CheckButton1(Dual Cell Model)" #t)(cx-gui-do cx-activate-item "Heat Exchanger Model*Table1(Options)*CheckButton1(Dual Cell Model)")(cx-gui-do cx-activate-item "Heat Exchanger Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Heat Exchanger (On)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Viscous (SST k-omega)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-set-toggle-button2 "Viscous Model*Table1*ToggleBox1(Model)*Laminar" #t)(cx-gui-do cx-activate-item "Viscous Model*Table1*ToggleBox1(Model)*Laminar")(cx-gui-do cx-set-toggle-button2 "Viscous Model*Table1*ToggleBox1(Model)*k-epsilon (2 eqn)" #t)(cx-gui-do cx-activate-item "Viscous Model*Table1*ToggleBox1(Model)*k-epsilon (2 eqn)")(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-use-window-id 1)(cx-set-camera-relative '(0.0137291 -0.0850003 0.0536967) '(0 0 0) '(0.242581 0.248246 0.354958) 0 0)(cx-use-window-id 1)(cx-set-camera-relative '(0.0096527 0.0281495 -0.281076) '(0 0 0) '(-0.522705 -0.720535 -0.434846) 0 0)(cx-use-window-id 1)(cx-set-camera-relative '(-0.0810693 -0.12029 -0.0570602) '(0 0 0) '(-0.16695 -0.0278097 0.334528) 0 0)(cx-use-window-id 1)(handle-key \"control ??\")(cx-use-window-id 1)(handle-key \"control s\")")
+meshComponent1.Update(AllDependencies=True)
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+meshComponent1.Update(AllDependencies=True)
+meshComponent3 = system3.GetComponent(Name="Mesh")
+meshComponent3.Update(AllDependencies=True)
+meshComponent4 = system4.GetComponent(Name="Mesh")
+meshComponent4.Update(AllDependencies=True)
+setupComponent1.Update(AllDependencies=True)
+setupComponent1.Update(AllDependencies=True)
+setupComponent2 = system3.GetComponent(Name="Setup")
+setupComponent2.Update(AllDependencies=True)
+Save(Overwrite=True)

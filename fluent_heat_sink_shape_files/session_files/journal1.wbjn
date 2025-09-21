@@ -1,0 +1,14 @@
+# encoding: utf-8
+# 2020 R1
+SetScriptVersion(Version="20.1.164")
+template1 = GetTemplate(TemplateName="FLUENT")
+system1 = template1.CreateSystem()
+system1.Delete()
+template2 = GetTemplate(TemplateName="FLTG")
+system2 = template2.CreateSystem()
+system2.Delete()
+template3 = GetTemplate(TemplateName="Fluid Flow")
+system3 = template3.CreateSystem()
+geometry1 = system3.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/New/circular.sat")
+Save(Overwrite=True)

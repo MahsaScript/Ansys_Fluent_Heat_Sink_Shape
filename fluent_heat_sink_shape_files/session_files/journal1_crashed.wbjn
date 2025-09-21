@@ -1,0 +1,28 @@
+# encoding: utf-8
+# 2020 R1
+SetScriptVersion(Version="20.1.164")
+template1 = GetTemplate(TemplateName="FLUENT")
+system1 = template1.CreateSystem()
+system1.Delete()
+template2 = GetTemplate(TemplateName="FLTG")
+system2 = template2.CreateSystem()
+system2.Delete()
+template3 = GetTemplate(TemplateName="Fluid Flow")
+system3 = template3.CreateSystem()
+geometry1 = system3.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/New/circular.sat")
+Save(Overwrite=True)
+system3.DisplayText = "Circle Heat Sink"
+geometry1.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/fluent_heat_sink_shape/fluent_heat_sink_shape_files/Circle.step")
+meshComponent1 = system3.GetComponent(Name="Mesh")
+meshComponent1.Update(AllDependencies=True)
+system4 = template3.CreateSystem(
+    Position="Right",
+    RelativeTo=system3)
+geometry2 = system4.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/mofid/Desktop/00-heat-sink/Deliver/fluent_heat_sink_shape/fluent_heat_sink_shape_files/Rectangle.step")
+meshComponent2 = system4.GetComponent(Name="Mesh")
+meshComponent2.Update(AllDependencies=True)
+system5 = template3.CreateSystem(
+    Position="Below",
+    RelativeTo=system3)
